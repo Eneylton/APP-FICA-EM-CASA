@@ -1,0 +1,53 @@
+<ion-header >
+  <ion-navbar >
+    <ion-title>
+      Meu Perfil
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card >
+
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+
+          <ion-item>
+            <ion-avatar item-start>
+
+              <img  src="{{avatar}}">
+              </ion-avatar>
+
+              </ion-item>
+        
+
+        </ion-row>
+        <ion-row>
+          <ion-col col-12><span style="font-size: 18px;margin-left: 50px;"><ion-icon class="fa-user-circle-o"></ion-icon> {{ nome }} </span> </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-4><span style="font-size: 12px;"><ion-icon class="fa-id-card"></ion-icon> {{ tipo }} </span> </ion-col>
+          <ion-col col-8><span style="font-size: 12px;"><ion-icon class="fa-envelope"></ion-icon> {{ email }} </span> </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-start clear small (click)="logaout()">
+          <ion-icon name="log-out"></ion-icon>
+          <div>LOGOUT</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-start clear small (click)="openEditarPerfil()">
+          <ion-icon class="fa-refresh"></ion-icon>
+          <div>ATUALIZAR</div>
+        </button>
+      </ion-col>
+      
+    </ion-row>
+  
+  </ion-card>
+</ion-content>

@@ -1,0 +1,40 @@
+page-list-usuario {
+
+    ion-item-sliding .item {
+        position: static;
+        background-color: #eeeeee5b;
+    }
+
+    ion-content.has-refresher > .scroll-content {
+        
+        background-image: url('../../assets/imgs/back2.jpg') !important;
+    }
+
+    .toolbar-title-md {
+        padding: 0 10px !important;
+        font-size: 1.5rem !important;
+        font-weight: 100 !important;
+        color: #d6d6d6;
+    }
+
+    .toolbar-background-md {
+       
+        background:#2c3842
+    }
+
+    .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+    
+        color:#2bff00;
+    }
+    
+    ion-avatar {
+        img {
+            border: 3px solid darken(#2bff00, 4% );
+            display: inline;
+            height: 60px !important;
+            width: 60px !important;
+        }
+    }
+
+}
+

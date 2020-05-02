@@ -1,0 +1,33 @@
+page-perfil-usuario {
+
+    .toolbar-title-md {
+        padding: 0 10px !important;
+        font-size: 1.5rem !important;
+        font-weight: 100 !important;
+        color: #d6d6d6;
+    }
+
+    .toolbar-background-md {
+       
+        background:#2c3842
+    }
+
+    .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+    
+        color:#2bff00;
+    }
+
+  
+
+    ion-avatar {
+        img {
+            border: 3px solid darken(#2bff00, 5% );
+            display: inline;
+            height: 100px !important;
+            width: 100px !important;
+            margin-left: 75px;
+        }
+    }
+
+}
+

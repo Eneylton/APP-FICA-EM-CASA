@@ -1,0 +1,119 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Empreendimentos</ion-title>
+
+    <ion-searchbar placeholder="Pesquisar" *ngIf="isSearchbarOpened" showCancelButton="true"
+      (ionCancel)="isSearchbarOpened=false" (ionInput)="getlojas($event)">
+    </ion-searchbar>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openCadLoja()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-buttons start>
+
+      <button ion-button icon-only *ngIf="!isSearchbarOpened" (click)="isSearchbarOpened=true">
+
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+      refreshingText="Atualizando...">
+
+    </ion-refresher-content>
+
+  </ion-refresher>
+
+  <ion-card *ngFor="let item of lojas">
+
+    <ion-item>
+
+
+      <ion-avatar item-start>
+        <ion-icon style="font-size: 40px; color:rgba(251, 172, 0, 0.959)" name="md-ribbon"></ion-icon>
+      </ion-avatar>
+      <h2>    <span style="font-weight: 600; font-size: 15px; text-transform:uppercase" [innerHTML]="item.nome.substr(0, 19) + '...'"></span></h2>
+      <p style="font-size: x-small;">{{ item.data | date: 'dd/MM/yyyy H:mm'}}</p>
+   
+    </ion-item>
+    
+    <ion-item>
+      <ion-fab right top>
+        <button ion-fab mini color="secondary">
+          <ion-icon color="light" name="pin"></ion-icon>
+        </button>
+      </ion-fab>
+
+      <img src="{{url+item.foto}}">
+
+    </ion-item>
+
+
+    <ion-card-content>
+      <p style="color: #2a2a2aca;">
+        <ion-icon name="home"></ion-icon>
+        <span style="font-size: x-small;">{{item.endereco}} , Nº: {{item.numero}} , {{item.bairro}}, {{item.cidade}} -
+          {{item.estado}}</span>
+      </p>
+      <p style="color: #2a2a2aca;">
+        <ion-icon style="font-size: 12px;" class="fa-envelope"></ion-icon>
+        <span style="font-size: x-small;">{{item.email}} </span>
+      </p>
+      <ion-row>
+        <ion-col col-4>
+          <button style="margin-left: -5px;" ion-button color="secondary" small icon-start (click)="openEditar(item.id,
+                                                                                                              item.nome,
+                                                                                                              item.email,
+                                                                                                              item.tel,
+                                                                                                              item.whatsapp,
+                                                                                                              item.facebook,
+                                                                                                              item.hist,
+                                                                                                              item.website,
+                                                                                                              item.cep,
+                                                                                                              item.endereco,
+                                                                                                              item.numero,
+                                                                                                              item.bairro,
+                                                                                                              item.cidade,
+                                                                                                              item.estado,
+                                                                                                              item.foto)">
+            <ion-icon name='md-brush'></ion-icon>
+            Editar
+          </button>
+        </ion-col>
+        <ion-col col-4>
+          <button style="margin-left: 12px;" ion-button color="secondary" small icon-start>
+            <ion-icon name='add'></ion-icon>
+            Produtos
+          </button>
+        </ion-col>
+        <ion-col col-4>
+          <button style="margin-left: 50px;" ion-button color="danger" small (click)="delete(item.id)" >
+            <ion-icon name='trash'></ion-icon>
+
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="CARREGANDO...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+
+</ion-content>

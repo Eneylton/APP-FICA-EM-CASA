@@ -1,0 +1,28 @@
+<ion-header >
+  <ion-navbar >
+    <ion-title>Atualizar Perfil</ion-title>
+    <ion-buttons start>
+      <button ion-button icon only (click)="salvar()">
+          
+        <ion-icon color="#019386" name="checkmark"></ion-icon>
+
+      </button>
+
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+
+  <ion-item>
+    <ion-label floating>Usuário</ion-label>
+    <ion-input type="text" [(ngModel)]="nome" (fucus)="selectText($event)" ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Senha</ion-label>
+    <ion-input type="text" [(ngModel)]="email" (fucus)="selectText($event)"></ion-input>
+  </ion-item>
+
+</ion-content>

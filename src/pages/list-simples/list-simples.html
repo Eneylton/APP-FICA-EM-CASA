@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>list-Simples</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+
+  <ion-card *ngFor="let item of listar">
+    <ion-item>
+
+      {{item.nome}}
+    </ion-item>
+
+    <ion-item>
+
+      {{item.endereco}}
+    </ion-item>
+  </ion-card>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Usuarios</ion-label>
+      <ion-select>
+        <ion-option *ngFor="let item of listar" value="{{item.endereco}}">
+          {{item.nome}}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+
+
+
+</ion-content>

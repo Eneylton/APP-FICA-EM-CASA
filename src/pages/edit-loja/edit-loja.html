@@ -1,0 +1,144 @@
+<ion-header >
+  <ion-navbar >
+    <ion-title>Editar Empreedimento</ion-title>
+    <ion-buttons start>
+      <button ion-button icon only (click)="editar()">
+          
+        <ion-icon color="#019386" name="checkmark"></ion-icon>
+
+      </button>
+
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+
+
+  <ion-grid>
+    <ion-row>
+    
+      <ion-col col-12>
+        
+          <img style="max-width: 70%; margin-left: 40px;" src="{{url+foto}}" *ngIf="base64Image == ''"   >
+          <img style="max-width: 70%; margin-left: 40px;" src="{{base64Image}}" *ngIf="base64Image != ''"   >
+        
+
+      </ion-col>
+
+      <ion-col col-12>
+        <div>
+          <button ion-button block (click)="presentActionSheet()" color="danger">Enviar Foto</button>
+        </div>
+      </ion-col>
+
+      <ion-col col-12>
+        <ion-item>
+          <ion-input type="text" placeholder="Nome" [(ngModel)]="nome"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-6>
+        <ion-item>
+          <ion-input type="text" placeholder="Telefone" [(ngModel)]="tel" [brmasker]="{phone: true}" ></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col col-12>
+        <ion-item>
+          <ion-input type="text" placeholder="Email" [(ngModel)]="email"></ion-input>
+        </ion-item>
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row>
+
+      <ion-col col-6>
+
+        <ion-item>
+          <ion-input type="text" placeholder="Whatsapp" [(ngModel)]="whatsapp"></ion-input>
+        </ion-item>
+
+      </ion-col>
+
+      <ion-col col-12>
+
+        <ion-item>
+          <ion-input type="text" placeholder="hinstagram - (copie o link)" [(ngModel)]="hist"></ion-input>
+        </ion-item>
+      </ion-col>
+
+    
+    </ion-row>
+
+    <ion-row>
+
+      <ion-col col-12>
+        <ion-item>
+          <ion-input type="text" placeholder="Facebook - (copie o link)" [(ngModel)]="facebook"></ion-input>
+        </ion-item>
+      </ion-col>
+
+
+    </ion-row>
+
+   
+    <ion-row>
+      <ion-col col-6>
+        <ion-item>
+          <ion-input type="text" placeholder="Cep" [(ngModel)]="cep" (ionBlur)="buscarCep()"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+
+      <ion-col col-8>
+        <ion-item>
+          <ion-input type="text" placeholder="Endereço" [(ngModel)]="endereco"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col col-4>
+        <ion-item>
+          <ion-input type="text" placeholder="Nº" [(ngModel)]="numero"></ion-input>
+        </ion-item>
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-12>
+
+        <ion-item>
+          <ion-input type="text" placeholder="Bairro" [(ngModel)]="bairro"></ion-input>
+        </ion-item>
+
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row>
+
+      <ion-col col-8>
+        <ion-item>
+          <ion-input type="text" placeholder="Cidade" [(ngModel)]="cidade"></ion-input>
+        </ion-item>
+
+      </ion-col>
+      <ion-col col-4>
+        <ion-item>
+          <ion-input type="text" placeholder="Estado" [(ngModel)]="estado"></ion-input>
+        </ion-item>
+
+      </ion-col>
+
+    </ion-row>
+
+  </ion-grid>
+
+
+
+</ion-content>
+

@@ -1,0 +1,36 @@
+page-list-loja {
+
+    ion-fab[right] {
+        right: 10px;
+        right: calc(10px + constant(safe-area-inset-right));
+        right: calc(15px + env(safe-area-inset-right));
+    }
+
+    ion-item-sliding .item {
+        position: static;
+        background-color: #eeeeee5b;
+    }
+
+    ion-content.has-refresher > .scroll-content {
+        
+        background-image: url('../../assets/imgs/back2.jpg') !important;
+    }
+
+    .toolbar-title-md {
+        padding: 0 10px !important;
+        font-size: 1.5rem !important;
+        font-weight: 100 !important;
+        color: #d6d6d6;
+    }
+
+    .toolbar-background-md {
+       
+        background:#2c3842
+    }
+
+    .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+    
+        color:#2bff00;
+    }
+
+}

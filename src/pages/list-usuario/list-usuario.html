@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Lista de Usuário</ion-title>
+
+    <ion-searchbar placeholder="Pesquisar" *ngIf="isSearchbarOpened" showCancelButton="true"
+      (ionCancel)="isSearchbarOpened=false" (ionInput)="getUsuarios($event)">
+    </ion-searchbar>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openPerfilUsuario()">
+        <ion-icon name="contact"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-buttons start>
+
+      <button ion-button icon-only *ngIf="!isSearchbarOpened" (click)="isSearchbarOpened=true">
+
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-fab bottom right>
+    <button color="light" ion-fab mini (click)="openRegistrarUsuario()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+
+  </ion-fab>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+      refreshingText="Atualizando...">
+
+    </ion-refresher-content>
+
+  </ion-refresher>
+
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let user of usuarios" style="margin-top: 20px;">
+        
+      <ion-item>
+      <ion-avatar item-start>
+        <img src="{{user.avatar}}">
+      </ion-avatar>
+      <h3 style="font-weight: 600;">{{user.nome}}</h3>
+      <h4>{{user.email}}</h4>
+      <h5>{{user.tipo}}</h5>
+
+      <ion-icon style="font-size: 20px;" name="ios-arrow-forward" item-end></ion-icon>
+
+    </ion-item>
+
+      <ion-item-options side="right">
+
+
+        <button ion-button color="secondary" (click)="openEditar(user.id,
+                                                        user.nome,
+                                                        user.email,
+                                                        user.tipo,
+                                                        user.avatar,
+                                                        user.login,
+                                                        user.senha)">
+          <ion-icon name="brush"></ion-icon>
+        </button>
+
+
+        <button ion-button color="light" (click)="delete(user.id)">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+
+      </ion-item-options>
+
+
+    </ion-item-sliding>
+  </ion-list>
+
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="CARREGANDO...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+
+</ion-content>
